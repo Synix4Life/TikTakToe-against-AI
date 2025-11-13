@@ -4,7 +4,7 @@
 ![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)
 
 ![License](https://img.shields.io/badge/License-MIT-%23ED8B00.svg?style=for-the-badge)
-![Version](https://img.shields.io/badge/Version-1.0.0-%23ED8B00.svg?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.1.0-%23ED8B00.svg?style=for-the-badge)
 ![Test](https://img.shields.io/badge/Test_passed-10_/_10-02303A.svg?style=for-the-badge)
 
 ---
@@ -17,7 +17,7 @@ It works completely in Java and uses the Gradle (Groovy) builder.
 
 ## Setup
 
-You can change how the AI plays by manipulating the temperature in [Main.java](src/main/java/Main.java)
+You can change how the AI plays by manipulating the temperature in [Main.java](src/main/java/io/github/synix4life/games/tiktaktoe/Main.java)
 
 The temperature determines how good the AI plays.
 
@@ -72,12 +72,15 @@ Here, 'X' represents your turn, 'O' enemies:
 ### Future plans
 
 - Make AI able to start
-- Print "Win"/ "Lose"/ "Tie" in the JFrame, not the terminal
 - Improve AI to play truly perfect (i.e. notice a fork), for example by utilizing [this strategy](https://en.wikipedia.org/wiki/Tic-tac-toe#Strategy)
 
 ---
 
 ## Changelog
 
-- $\textsf{\color{orange}Version 1.0}$
+- $\textsf{\color{orange}Version 1.0.0}$
     - Initial Upload
+    - $\textsf{\color{orange}Version 1.1.0}$
+      - Outsourced ActionListener
+      - Restructuring
+      - Changed package structure to fit conventions

@@ -1,6 +1,8 @@
-import TikTakToe.Bot;
-import TikTakToe.Logic;
-import TikTakToe.UI;
+package io.github.synix4life.games.tiktaktoe;
+
+import io.github.synix4life.games.tiktaktoe.logic.*;
+import io.github.synix4life.games.tiktaktoe.ui.UI;
+
 
 public class Main {
     public static void main(String[] args) {

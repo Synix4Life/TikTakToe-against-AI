@@ -1,6 +1,11 @@
-package TikTakToe;
+package io.github.synix4life.games.tiktaktoe.logic;
 
+
+/**
+ * Class that provides additional logic for the game-state
+ */
 public class Logic {
+    // Private variable that stores the game-state
     private final char[][] gameState;
 
     /**

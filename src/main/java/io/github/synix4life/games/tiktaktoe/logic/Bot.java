@@ -1,5 +1,9 @@
-package TikTakToe;
+package io.github.synix4life.games.tiktaktoe.logic;
 
+
+/**
+ * Class to create a bot to play against
+ */
 public class Bot {
     private final Logic logic;
     private final Evaluation evaluator;
@@ -10,10 +14,13 @@ public class Bot {
      * @param logic Logic
      * @param temperature Temperature in [0,1]
      */
-    public Bot(Logic logic, double temperature) {
+    public Bot(Logic logic, double temperature) throws IllegalArgumentException {
         this.logic = logic;
         this.evaluator = new Evaluation();
         this.temperature = temperature;
+        if(temperature > 1 || temperature < 0) {
+            throw new IllegalArgumentException("Temperature must be between 0 and 1.");
+        }
     }
 
     /**

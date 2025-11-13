@@ -33,5 +33,5 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 application {
-    mainClass = 'Main'
+    mainClass = 'io.github.synix4life.games.tiktaktoe.Main'
 }

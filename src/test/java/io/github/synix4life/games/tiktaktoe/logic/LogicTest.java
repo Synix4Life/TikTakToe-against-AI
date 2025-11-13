@@ -1,4 +1,4 @@
-package TikTakToe;
+package io.github.synix4life.games.tiktaktoe.logic;
 
 import java.util.Arrays;
 

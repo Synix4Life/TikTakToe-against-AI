@@ -1,8 +1,12 @@
-package TikTakToe;
+package io.github.synix4life.games.tiktaktoe.logic;
 
 import java.util.ArrayList;
 import java.util.Random;
 
+
+/**
+ * Class that provides evaluation logic
+ */
 public class Evaluation {
     private final Random rand ;
 
