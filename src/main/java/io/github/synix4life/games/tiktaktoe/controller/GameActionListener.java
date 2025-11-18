@@ -45,7 +45,9 @@ public class GameActionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(!handlePlayerMove()) { return; }
+        checkTie();
         handleBotMove();
+        checkTie();
     }
 
     /**
@@ -63,17 +65,13 @@ public class GameActionListener implements ActionListener {
             JOptionPane.showMessageDialog(frame, "You win!");
             System.exit(0);
         }
-        if(logicController.tie()){
-            JOptionPane.showMessageDialog(frame, "Tie!");
-            System.exit(0);
-        }
         return true;
     }
 
     /**
      * Handles Bot move
      */
-    private  void handleBotMove(){
+    public void handleBotMove(){
         int[] move = bot.nextMove();
         if(move == null) return;
         int br = move[0], bc = move[1];
@@ -83,6 +81,16 @@ public class GameActionListener implements ActionListener {
 
         if(logicController.checkWin()==0) {
             JOptionPane.showMessageDialog(frame, "You lose!");
+            System.exit(0);
+        }
+    }
+
+    /**
+     * Method to check winning and show the message
+     */
+    private void checkTie(){
+        if(logicController.tie()){
+            JOptionPane.showMessageDialog(frame, "Tie!");
             System.exit(0);
         }
     }

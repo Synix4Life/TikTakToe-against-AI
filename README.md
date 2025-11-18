@@ -4,7 +4,7 @@
 ![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)
 
 ![License](https://img.shields.io/badge/License-MIT-%23ED8B00.svg?style=for-the-badge)
-![Version](https://img.shields.io/badge/Version-1.1.0-%23ED8B00.svg?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.2.0-%23ED8B00.svg?style=for-the-badge)
 ![Test](https://img.shields.io/badge/Test_passed-10_/_10-02303A.svg?style=for-the-badge)
 
 ---
@@ -55,7 +55,7 @@ Currently, the probability only applies to the steps. It doesn't take every poss
 
 ### Win against AI with temperature = 1
 
-Here is a quick guide on how to win against the AI with temperature = 1, since the AI strictly follows the ruleset. 
+Here is a quick guide on how to win against the AI with temperature = 1 (if you start), since the AI strictly follows the ruleset. 
 
 Here, 'X' represents your turn, 'O' enemies:
 
@@ -71,7 +71,6 @@ Here, 'X' represents your turn, 'O' enemies:
 
 ### Future plans
 
-- Make AI able to start
 - Improve AI to play truly perfect (i.e. notice a fork), for example by utilizing [this strategy](https://en.wikipedia.org/wiki/Tic-tac-toe#Strategy)
 
 ---
@@ -84,3 +83,5 @@ Here, 'X' represents your turn, 'O' enemies:
       - Outsourced ActionListener
       - Restructuring
       - Changed package structure to fit conventions
+  - $\textsf{\color{orange}Version 1.2.0}$
+      - Added ability to make bot start

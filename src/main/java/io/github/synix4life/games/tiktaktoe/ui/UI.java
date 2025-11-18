@@ -17,7 +17,7 @@ public class UI {
      * @param logicController Logic
      * @param bot Bot
      */
-    public UI(Logic logicController, Bot bot){
+    public UI(Logic logicController, Bot bot, boolean botStarts){
         JFrame frame = new JFrame("TikTakToe");
         frame.setSize(300,300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,5 +46,11 @@ public class UI {
 
         frame.setVisible(true);
 
+        if(botStarts){
+            // Unclickable button because out of range
+            GameActionListener botStarterListener =
+                    new GameActionListener(-1, -1, buttons, logicController, bot, frame);
+            botStarterListener.handleBotMove();
+        }
     }
 }
