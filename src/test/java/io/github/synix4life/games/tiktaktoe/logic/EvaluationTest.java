@@ -57,6 +57,19 @@ public class EvaluationTest {
     }
 
     @Test
+    public void testEvaluateOppositeCorner(){ // Opposite Corner
+        char[][] board = new  char[][]{
+                {' ', ' ', ' '},
+                {' ', 'O', ' '},
+                {' ', ' ', 'X'}
+        };
+        int[] move = evaluation.evaluate(board, 1);
+        assertNotNull(move);
+        System.out.print(move);
+        assertArrayEquals(new int[]{0,0}, move);
+    }
+
+    @Test
     public void testEvaluateCorner() { // Corner
         char[][] board = new  char[][]{
                 {'O', ' ', ' '},

@@ -1,7 +1,9 @@
 package io.github.synix4life.games.tiktaktoe.logic;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import java.util.function.Supplier;
 
 
 /**
@@ -24,34 +26,22 @@ public class Evaluation {
      * @return Next move, null if none possible
      */
     public int[] evaluate(char[][] gameState, double temperature) {
-        var move = win(gameState);
+        List<Supplier<int[]>> strategies = List.of(
+            () -> win(gameState),
+            () -> block(gameState),
+            () -> center(gameState),
+            () -> oppositeCorner(gameState),
+            () -> corner(gameState),
+            () -> sides(gameState)
+        );
 
-        if(move != null && rand.nextDouble() < temperature) {
-            return move;
-        }
+        double roll = rand.nextDouble(); // micro-optimization
 
-        move = block(gameState);
-
-        if(move != null && rand.nextDouble() < temperature) {
-            return move;
-        }
-
-        move = center(gameState);
-
-        if(move != null && rand.nextDouble() < temperature) {
-            return move;
-        }
-
-        move = corner(gameState);
-
-        if(move != null && rand.nextDouble() < temperature) {
-            return move;
-        }
-
-        move = sides(gameState);
-
-        if(move != null && rand.nextDouble() < temperature) {
-            return move;
+        for (Supplier<int[]> strategy : strategies) {
+            int[] move = strategy.get();
+            if (move != null && roll < temperature) {
+                return move;
+            }
         }
 
         return randomMove(gameState);
@@ -82,6 +72,22 @@ public class Evaluation {
      */
     private int[] center(char[][] gameState){
         return gameState[1][1] == ' ' ? new int[]{1,1} : null;
+    }
+
+    /**
+     * Checks for opposite corner
+     * @param gameState GameState
+     * @return A move if possible, else null
+     */
+    private int[] oppositeCorner(char[][] gameState){
+        ArrayList<int[]> cells = new ArrayList<>();
+
+        if (gameState[0][0] == 'X' && gameState[2][2] == ' ') cells.add(new int[]{2,2});
+        if (gameState[0][2] == 'X' && gameState[2][0] == ' ') cells.add(new int[]{2,0});
+        if (gameState[2][0] == 'X' && gameState[0][2] == ' ') cells.add(new int[]{0,2});
+        if (gameState[2][2] == 'X' && gameState[0][0] == ' ') cells.add(new int[]{0,0});
+
+        return cells.isEmpty() ? null : cells.get(rand.nextInt(cells.size()));
     }
 
     /**
